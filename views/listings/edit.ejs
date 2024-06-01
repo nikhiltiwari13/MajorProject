@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2 mt-3">
+    <h3>Edit your listing</h3>
+    <form method="post" action="/listings/<%= list._id %>?_method=put" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" value="<%= list.title %>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid Title</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required><%= list.description %></textarea>
+            <div class="invalid-feedback">Enter valid and short Description </div>
+        </div>
+        <div class="mb-3">
+            <img src="<%= originalImageUrl %>">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload new Image</label>
+            <input type="file" name="listing[image]" class="form-control">
+        </div>
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="listing[price]" value="<%= list.price %>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid Price</div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="listing[country]" value="<%= list.country %>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid Country</div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" value="<%= list.location %>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid Location</div>
+        </div>
+        <button class="btn btn-add btn-danger mb-3">Edit</button>
+    </form>
+</div>
+</div>
+<script src="/js/script.js"></script>
